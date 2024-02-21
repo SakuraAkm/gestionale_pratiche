@@ -17,7 +17,7 @@
 
 ?>
 
-    <main class="site-content text-dark">
+    <main class="min-height site-content text-dark">
         <section class="pt-5">
             
             <div class="container">
@@ -43,7 +43,14 @@
                                     echo 'presente';
                              ?></td>
                             <td><?php echo $riga['nome_utente']; ?></td>
-                            <td><?php echo $riga['nome_responsabile']; ?></td>
+                            <td>
+                                <?php 
+                                    if(!empty($riga['nome_responsabile']))
+                                        echo $riga['nome_responsabile']; 
+                                    else
+                                        echo "Responsabile non assegnato";
+                                ?>
+                            </td>
                             <td><?php 
                                 if($riga['stato_pratica'] == 1)
                                     echo 'presa in carica'; 
@@ -73,5 +80,7 @@
 
     get_footer(); 
 
+    $stmt->close();
+    $conn->close();
     ?>
     

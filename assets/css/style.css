@@ -7,7 +7,14 @@ button {
     transition: all 0.3s !important;
 }
 
-button a {
+header button a {
+    padding: 0.75rem 1.5rem !important;
+    color: white;
+    text-decoration: none;
+}
+
+main button a {
+    padding: 1.25rem 2rem !important;
     color: white;
     text-decoration: none;
 }
@@ -20,8 +27,8 @@ button:hover, #logo:hover{
     transform: scale(1.05);
 }
 
-#home {
-    min-height: calc(100vh - 165px);
+.min-height{
+    min-height: calc(100vh - 164px);
 }
 
 .cover-text, .cover, .row img{
@@ -41,6 +48,10 @@ button:hover, #logo:hover{
     max-width: 95.6%;
     inset: 0;
     opacity: 0.7;
+}
+
+#login form {
+    width: 40%;
 }
 
 footer{
