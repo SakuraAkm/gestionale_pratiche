@@ -7,6 +7,11 @@ button {
     transition: all 0.3s !important;
 }
 
+button a {
+    color: white;
+    text-decoration: none;
+}
+
 #logo{
     transition: all 0.3s !important;
 }
