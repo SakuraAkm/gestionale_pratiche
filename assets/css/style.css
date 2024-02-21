@@ -1,0 +1,40 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+button {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
+}
+
+.row button{
+    bottom: 1rem;
+    right: 2rem;
+}
+
+.row img::after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.7);
+    z-index: 12;
+}
+
+/* <div class="z-n1 cover position-absolute h-100 w-100 bg-dark"></div> */
+
+.cover-text{
+    border-radius: 15px ;
+    inset: 0;
+}
+
+.cover {
+    inset: 0;
+    opacity: 0.7;
+}
+
+.row img{
+    border-radius: 15px;
+}
+
+footer{
+    height: 5rem;
+}
