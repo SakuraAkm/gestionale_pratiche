@@ -4,35 +4,43 @@ body {
 
 button {
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
+    transition: all 0.3s !important;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+#logo{
+    transition: all 0.3s !important;
+}
+
+button:hover, #logo:hover{
+    transform: scale(1.05);
+}
+
+#home {
+    min-height: calc(100vh - 165px);
+}
+
+.cover-text, .cover, .row img{
+    border-radius: 15px ;
 }
 
 .row button{
-    bottom: 1rem;
+    bottom: 1.5rem;
     right: 2rem;
 }
 
-.row img::after {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 0, 0, 0.7);
-    z-index: 12;
-}
-
-/* <div class="z-n1 cover position-absolute h-100 w-100 bg-dark"></div> */
-
 .cover-text{
-    border-radius: 15px ;
     inset: 0;
 }
 
 .cover {
+    max-width: 95.6%;
     inset: 0;
     opacity: 0.7;
-}
-
-.row img{
-    border-radius: 15px;
 }
 
 footer{
