@@ -38,13 +38,13 @@ if( $risultati -> num_rows > 0 ) { ?>
 
 
     <tr>
-      <th scope="row"><?php echo $riga['id']; ?></th>
+      <th scope="row"><?php echo $riga['id_pratica']; ?></th>
       <td><?php echo $riga['corso']; ?></td>
       <td><?php echo $riga['documenti']; ?></td>
       <td><?php echo $riga['nome_utente']; ?></td>
-      <td><?php echo $riga['responsabile_pratica']; ?></td>
+      <td><?php echo $riga['nome_responsabile']; ?></td>
       <td><?php echo $riga['stato_pratica']; ?></td>
-      <td><?php echo $riga['data_inserimento']; ?></td>
+      <td><?php echo $riga['data_registrazione']; ?></td>
       <td><a href="single.php?idpratiche=<?php echo $riga['id']; ?>" class="btn btn-success">VISUALIZZA</a><a href="../delete/index.php?idpratiche=<?php echo $riga['id']; ?>" class="btn btn-danger">CANCELLA</a> <a href="../update/index.php?idpratiche=<?php echo $riga['id']; ?>" class="btn btn-warning">AGGIORNA</a></td>
     </tr>
 
