@@ -14,19 +14,18 @@
     <link rel="stylesheet" href= "http://<?php echo APP_URI ?>/assets/css/style.css">
 </head>
 
-<!-- <body class="text-bg-dark"> -->
 <body class="text-dark">
     <header>
         <nav class="navbar bg-primary py-3">
             <div class="container-fluid container">
 
-              <a id="logo" class="navbar-brand text-light fs-3 fw-semibold" href="index.php">Gestionale Pratiche</a>
+                <a id="logo" class="navbar-brand text-light fs-3 fw-semibold" href="http://<?php echo APP_URI ?>/index.php">Gestionale Pratiche</a>
 
-              <div class="ms-auto">
-                <button type="button" class="btn btn-info text-light fw-semibold rounded-pill px-2 fs-5">
-                    <a href="login_registrazione.php">Login</a>
-                </button>
-            </div>
+                <div class="ms-auto">
+                    <button type="button" class="btn btn-info text-light fw-semibold rounded-pill px-2 fs-5">
+                        <a href="http://<?php echo APP_URI ?>/login_registrazione.php">Login</a>
+                    </button>
+                </div>
 
             </div>
             

@@ -1,10 +1,10 @@
 <?php
 
-include_once 'inc/db.config.php';
+include_once '../inc/db.config.php';
 
 $id = $_GET['idpratiche'];
 
-$sql = "DELETE FROM pratiche WHERE id=?";
+$sql = "DELETE FROM pratiche WHERE id_pratica=?";
 
 $stmt = $conn -> prepare( $sql );
 
@@ -17,6 +17,6 @@ if ( $stmt -> execute() === FALSE ) {
 $stmt -> close();
 $conn -> close();
 
-header('Location: visualizza_admin.php');
+header('Location: ../visualizza_admin.php');
 exit();
 ?>

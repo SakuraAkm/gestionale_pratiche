@@ -3,10 +3,9 @@ include_once 'inc/functions.php';
 get_header("Aggiungi Pratica");
 ?>
 
-<body>
-    <main>
-    <section id="form" class="min-height">
-        <form action="aggiungi_pratica.php" method="post">
+<main>
+    <section class="min-height">
+        <form action="aggiungi_pratica.php" method="POST">
             <div class="container position-relative py-5 d-flex justify-content-center align-items-center">
                 <div>
                     <div class="mb-3">
