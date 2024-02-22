@@ -2,7 +2,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-button {
+button{
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
     transition: all 0.3s !important;
 }
@@ -52,6 +52,10 @@ button:hover, #logo:hover{
 
 #login form {
     width: 40%;
+}
+
+.viewport-20 {
+    width: 20vw;
 }
 
 footer{
