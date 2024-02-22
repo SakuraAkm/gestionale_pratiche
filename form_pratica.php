@@ -5,8 +5,8 @@ get_header("Aggiungi Pratica");
 
 <body>
     <main>
-    <section id="form">
-        <form action="upload.php" method="post">
+    <section id="form" class="min-height">
+        <form action="aggiungi_pratica.php" method="post">
             <div class="container position-relative py-5 d-flex justify-content-center align-items-center">
                 <div>
                     <div class="mb-3">
