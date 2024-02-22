@@ -1,8 +1,13 @@
 <?php
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
 
 include_once '../inc/db.config.php';
+
+session_start();
+if($_SESSION['login'] == false)
+{
+    header('location: index.php');
+    exit;
+}
 
 $id = $_POST['id'];
 $corso = $_POST['aggiorna-corso'];

@@ -1,10 +1,10 @@
 <?php
-
+include_once "upload_doc.php";
 include_once 'inc/db.config.php';
 
 $nome_utente = $_POST['emailUtente'];
 $corso = $_POST['corso'];
-$documenti = "doc";//$_POST['documenti'];
+$documenti = $fileDestinazioneDatabase;
 $stato_pratica = 1;
 $sql = "INSERT INTO pratiche ( corso, documenti, nome_utente, stato_pratica ) VALUES ( ?, ?, ?, ?)";
 
@@ -18,7 +18,7 @@ if ( $stmt -> execute() === FALSE ) {
 $stmt->close();
 $conn->close();
 
-header('Location: admin/visualizza.php');
+header('Location: visualizza.php');
 exit;
 
 ?>
