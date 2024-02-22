@@ -1,12 +1,14 @@
 <?php
 
-include_once 'inc/config.php';
-include_once 'inc/db.config.php';
+include_once '../inc/config.php';
+include_once '../inc/db.config.php';
+include_once '../inc/functions.php';
+get_header("Pratica");
 
 
 $id = $_GET['idpratiche'];
 
-$sql = "SELECT * FROM pratiche WHERE id=?";
+$sql = "SELECT * FROM pratiche WHERE id_pratica=?";
 
 $stmt = $conn -> prepare($sql);
 $stmt->bind_param("i", $id);
@@ -23,40 +25,47 @@ if( $risultati -> num_rows > 0 ) {
     
 <main>
             
-               <section id="copertina" style="background-image: url(../../assets/images/);background-size: cover;background-position: center;height: 90vh;"class=" w-100 d-flex justify-content-center align-items-center text-white text-center">
-            <div class="contenuto">
-            <h2 class="display-1 text-uppercase fw-bold"><?php echo $riga['corso']; ?></h2>
-                <p class="fs-1"><?php echo $riga['documenti']; ?></p>
-                <p class="fs-5">Articolo scritto da:<?php echo $riga['nome_utente']; ?></p>
-                <p class="fs-5">Articolo supervisionato da:<?php echo $riga['nome_responsabile']; ?></p>
-                <p class="fs-5">Articolo creato il giorno:<?php echo $riga['data_registrazione']; ?></p>
-           <a href="visualizza_admin?idpratiche=<?php echo $riga['id']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
-         </div>
+<section id="copertina" style="background-image: url(../../assets/images/);background-size: cover;background-position: center;height: 90vh;"
+  class="min-height w-100 d-flex justify-content-center align-items-center text-white text-center">
 
-      
- 
+  <div class="contenuto">
+    <h1 class="display-3">Corso di:</h1>
+    <h1 class="display-3 text-uppercase fw-semibold"><?php echo $riga['corso']; ?></h1>
+        <p class="fs-1"><?php echo $riga['documenti']; ?></p>
+        <p class="fs-5">Corso di: <?php echo $riga['nome_utente']; ?></p>
+        <p class="fs-5">Supervisionato da: <?php echo $riga['nome_responsabile']; ?></p>
+        <p class="fs-5">Stato della pratica:
+          <?php 
 
+          if($riga['stato_pratica'] == 1){
+            echo 'Presa in Carica';
+          } elseif($riga['stato_pratica'] == 2){
+            echo 'In corso';
+          } elseif($riga['stato_pratica'] == 3){
+            echo 'Completata';
+          } else {echo "Error"; }; ?>
 
-       
+        </p>
+        <p class="fs-5">Creata il giorno:   <?php echo $riga['data_registrazione']; ?></p>
+    <a href="form_aggiorna_pratica.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
+  </div>
 
+<?php } else { ?>
 
+  <h1 class="display-4">
+    <?php echo "Non ci sono dati"; ?>
+  </h1> 
 
-
-<?php } else {
-
-echo "Non ci sono dati";
-
+<?php
 }
+ ?> 
+  </section>
+ </main>   
 
-
+ <?php 
+ get_footer();
  
  $stmt->close();
  $conn->close();
 
- ?> 
-   </section>
- 
-
-
-
- </main>   
+ ?>

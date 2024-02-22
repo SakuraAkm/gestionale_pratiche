@@ -2,13 +2,13 @@
 include_once 'inc/db.config.php';
 session_start();
 
-$username = $_POST['username-login'];
+$nome_utente = $_POST['username-login'];
 $password = $_POST['password-login'];
 
 $sql = "SELECT psw FROM utenti WHERE username = ? ";
 
 $stmt = $conn -> prepare($sql);
-$stmt -> bind_param('s', $username);
+$stmt -> bind_param('s', $nome_utente);
 
 if($stmt->execute() === false){
     die("Errore" . $stmt->error);
