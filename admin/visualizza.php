@@ -34,7 +34,7 @@ if( $risultati -> num_rows > 0 ) {
         <p class="fs-1"><?php echo $riga['documenti']; ?></p>
         <p class="fs-5">Corso di: <?php echo $riga['nome_utente']; ?></p>
         <p class="fs-5">Supervisionato da: <?php echo $riga['nome_responsabile']; ?></p>
-        <p class="fs-5">Stato della pratica:   
+        <p class="fs-5">Stato della pratica:
           <?php 
 
           if($riga['stato_pratica'] == 1){
@@ -47,11 +47,16 @@ if( $risultati -> num_rows > 0 ) {
 
         </p>
         <p class="fs-5">Creata il giorno:   <?php echo $riga['data_registrazione']; ?></p>
-    <a href="visualizza.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
+    <a href="form_aggiorna_pratica.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
   </div>
 
-<?php } else {
-echo "Non ci sono dati";
+<?php } else { ?>
+
+  <h1 class="display-4">
+    <?php echo "Non ci sono dati"; ?>
+  </h1> 
+
+<?php
 }
  ?> 
   </section>

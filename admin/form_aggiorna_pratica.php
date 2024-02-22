@@ -36,12 +36,21 @@ $row = $results -> fetch_assoc();
                         <label for="aggiorna-nome-responsabile" class="form-label">Nome Responsabile</label>
                         <input type="text" class="form-control" id="aggiorna-nome-responsabile" name="aggiorna-nome-responsabile" value="<?php echo $row['nome_responsabile'] ?>">
                     </div>
-                    <!-- bisogna fare un menu a tendina dove selezionare lo stato, e fare in modo che invii a aggiorna.php / riceva un integer
-                    <div class="mb-3">
-                        <label for="aggiorna-stato" class="form-label">Stato</label>
-                        <input type="text" class="form-control" id="aggiorna-stato" name="aggiorna-stato" value="<?php echo $row['stato'] ?>">
-                    </div> 
-                    -->
+
+                    <label for="aggiorna-stato" class="form-label">Stato</label>
+                    <select class="form-select mb-3" id="aggiorna-stato" name="aggiorna-stato" aria-label="Default select example">
+                        <option selected>Stato della Pratica</option>
+                        <option value="1" <?php echo $row['stato_pratica'] == 1 ? "selected" : null ?> >
+                            Presa in Carica
+                        </option>
+                        <option value="2" <?php echo $row['stato_pratica'] == 2 ? "selected" : null ?>>
+                            In Corso
+                        </option>
+                        <option value="3" <?php echo $row['stato_pratica'] == 3 ? "selected" : null?>>
+                            Completata
+                        </option>
+                    </select>
+
                     <div class="mb-3">
                         <label for="aggiorna-documenti" class="form-label">Documento</label>
                         <input type="file" class="form-control" id="aggiorna-documenti"  name="aggiorna-documenti" multiple value="<?php echo $row['documenti'] ?>">

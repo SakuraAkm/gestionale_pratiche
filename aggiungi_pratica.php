@@ -5,11 +5,11 @@ include_once 'inc/db.config.php';
 $nome_utente = $_POST['emailUtente'];
 $corso = $_POST['corso'];
 $documenti = "doc";//$_POST['documenti'];
-$stato = 1;
+$stato_pratica = 1;
 $sql = "INSERT INTO pratiche ( corso, documenti, nome_utente, stato_pratica ) VALUES ( ?, ?, ?, ?)";
 
 $stmt = $conn -> prepare( $sql );
-$stmt -> bind_param('sssi', $corso, $documenti, $nome_utente, $stato);
+$stmt -> bind_param('sssi', $corso, $documenti, $nome_utente, $stato_pratica);
 
 if ( $stmt -> execute() === FALSE ) {
     die('DATI NON INSERITI ' . $stmt -> error );
