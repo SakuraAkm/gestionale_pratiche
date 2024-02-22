@@ -43,6 +43,3 @@ else{
     header('location: login_registrazione.php');
     exit;
 }
-
-$stmt->close();
-$conn->close();

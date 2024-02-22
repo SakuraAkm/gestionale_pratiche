@@ -26,7 +26,7 @@ $row = $results -> fetch_assoc();
 
 <main>
     <section class="min-height d-flex justify-content-center align-items-center">
-        <form action="aggiorna.php" method="POST">
+        <form action="aggiorna.php" method="POST" enctype="multipart/form-data">
             <h1 class="fs-1 text-center text-uppercase fw-semibold">Aggiorna Dati Pratica</h1>
             <div class="container position-relative py-5 d-flex justify-content-center align-items-center">
                 <div>
@@ -58,8 +58,8 @@ $row = $results -> fetch_assoc();
                     </select>
 
                     <div class="mb-3">
-                        <label for="aggiorna-documenti" class="form-label">Documento</label>
-                        <input type="file" class="form-control" id="aggiorna-documenti"  name="aggiorna-documenti" multiple value="<?php echo $row['documenti'] ?>">
+                        <label for="documenti" class="form-label">Documento</label>
+                        <input type="file" class="form-control" id="aggiorna-documenti"  name="documenti" multiple >
                     </div>
 
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
