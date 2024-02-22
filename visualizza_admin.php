@@ -2,6 +2,14 @@
 
 include_once 'inc/config.php';
 include_once 'inc/db.config.php';
+include_once 'inc/functions.php';
+get_header();
+
+if($_SESSION['login'] == false)
+{
+    header('location: index.php');
+    exit;
+}
 
 $sql = "SELECT * FROM pratiche";
 
