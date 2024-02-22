@@ -4,9 +4,10 @@ include_once 'inc/db.config.php';
 $username = $_POST['username-login'];
 $password = $_POST['password-login'];
 
-$sql = "SELECT * FROM utenti WHERE username = '$username' ";
+$sql = "SELECT * FROM utenti WHERE username = ? ";
 
 $stmt = $conn -> prepare($sql);
+$stmt -> bind_param('s', $username);
 
 if($stmt->execute() === false){
     die("Errore" . $stmt->error);
@@ -17,7 +18,21 @@ $results = $stmt->get_result();
 if($results->num_rows > 0){
     $row = $results->fetch_assoc();
 
-    // controllare la password
+    $row = $risultato -> fetch_assoc();
+
+    $password_DB = $row['psw'];
+
+    $password = $password . AUTH_SALT;
+
+    if ( password_verify($password, $password_DB) ) {
+
+      echo "ok";
+
+    } else {
+
+      echo "Password non valida";
+
+    }
 
 } else{
     echo "Dati inseriti non corretti";
