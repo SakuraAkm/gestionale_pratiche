@@ -17,11 +17,11 @@
 
 ?>
 
-    <main class="min-height site-content text-dark">
-        <section class="pt-5">
+    <main class="text-dark">
+        <section class="min-height">
             
             <div class="container">
-            <h1 class="text-center p-3">Pratiche registrate</h1>
+            <h1 class="display-4 fw-semibold text-center pt-5">Pratiche registrate</h1>
             <?php if ( $risultati -> num_rows > 0 ) { ?>
                 <table class="table table-secondary">
                     <thead>
@@ -35,8 +35,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                <?php while ( $riga = $risultati -> fetch_assoc() )  :?>
+                <?php while ( $riga = $risultati -> fetch_assoc() )  :?>       
+                        <tr> 
                             <td><?php echo $riga['corso']; ?></td>
                             <td>
                                 <?php if(!empty($riga['documenti']))
@@ -66,16 +66,26 @@
                                 echo $data_visualizzata;?>
                             </td>
                         </tr>
+            <?php endwhile; ?>            
                     </tbody>
                 </table>
-            <?php endwhile; ?>
             </div>
         </section>
         
-        <?php } else {
-            echo "non ci sono pratiche";
-        }?>
+        <?php } else {?>
+
+        <main>
+            <section>
+                <h1 class= "fs-3 fw-medium d-flex justify-content-center align-items-center pt-5">
+                    <?php echo "Nessuna Praticha Registrata"; ?> 
+                </h1>
+            </section>
+        </main>
+
+    <?php } ?>
+
     </main>
+
     <?php
 
     get_footer(); 
