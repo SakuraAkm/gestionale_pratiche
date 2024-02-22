@@ -35,8 +35,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                <?php while ( $riga = $risultati -> fetch_assoc() )  :?>
+                <?php while ( $riga = $risultati -> fetch_assoc() )  :?>       
+                        <tr> 
                             <td><?php echo $riga['corso']; ?></td>
                             <td>
                                 <?php if(!empty($riga['documenti']))
@@ -66,9 +66,9 @@
                                 echo $data_visualizzata;?>
                             </td>
                         </tr>
+            <?php endwhile; ?>            
                     </tbody>
                 </table>
-            <?php endwhile; ?>
             </div>
         </section>
         
