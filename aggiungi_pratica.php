@@ -18,7 +18,7 @@ if ( $stmt -> execute() === FALSE ) {
 $stmt->close();
 $conn->close();
 
-header('Location: visualizza.php');
+header('Location: visualizza_pratiche.php');
 exit;
 
 ?>
