@@ -1,9 +1,11 @@
 <?php 
 include_once 'inc/functions.php';
-get_header("Home");
-$_SESSION['login'] = false;
+
+$_SESSION['login'] = 0;
 $_SESSION['error'] = '';
 $_SESSION['mex'] = '';
+get_header("Home");
+
 ?>
 
     <main>

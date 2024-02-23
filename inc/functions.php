@@ -2,6 +2,8 @@
 
 require_once 'config.php';
 
+session_start();
+
 function get_header( $title = "Titolo Generico" ) {
 
     include_once APP_DIR . '/template/header.php';
