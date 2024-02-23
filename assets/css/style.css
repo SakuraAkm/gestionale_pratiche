@@ -24,7 +24,7 @@ main button a {
     text-decoration: none;
 }
 
-#logo{
+#logo, footer a {
     transition: all 0.3s !important;
 }
 
@@ -36,8 +36,13 @@ button:hover, #logo:hover{
     min-height: calc(100vh - 164px);
 }
 
+.container2 {
+    max-width: 75% !important;
+    margin-inline: auto !important;
+}
+
 .cover-text, .cover, .row img{
-    border-radius: 15px ;
+    border-radius: 15px !important;
 }
 
 .row button{
@@ -63,18 +68,22 @@ button:hover, #logo:hover{
     width: 20vw;
 }
 
+footer div{
+    height: 5rem;
+}
+
+footer a:hover{
+    color: rgb(200, 200, 200) !important;
+}
+
 .my-alert{
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-footer{
-    height: 5rem;
-}
-
 .opacity {
-    animation: opacity 1 linear 1 1 normal forwards;
+    animation: opacity 1s linear 3s 1 normal forwards;
 }
 
 @keyframes opacity {
