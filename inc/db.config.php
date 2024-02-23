@@ -10,7 +10,7 @@ $nomeDB = DATABASE_NAME;
 $conn = new mysqli($host, $userDB, $pswDB);
 
 if ( $conn -> connect_error ) {
-    die('Non è possibile effettuare la connesisone' . $conn->connect_error );
+    die('Non è possibile effettuare la connessione' . $conn->connect_error );
 }
 
 $sql = "CREATE DATABASE IF NOT EXISTS $nomeDB";
