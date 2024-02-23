@@ -1,4 +1,3 @@
-
 <?php
 
 include_once 'inc/db.config.php';

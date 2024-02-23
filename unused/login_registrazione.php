@@ -7,7 +7,6 @@ get_header("Login");
 <main id="login" class="text-dark">
 
     <?php if($_SESSION['mex'] != '' ) :?>
-        <!-- opacity animation da sistemare -->
         <div class="my-alert opacity alert alert-success mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['mex']; ?></div>
     <?php $_SESSION['mex'] = ''; endif; ?>
     <?php if($_SESSION['error'] != '' ) :?>
@@ -26,7 +25,7 @@ get_header("Login");
                 <label for="password-register" class="form-label">Password</label>
                 <input type="password" name="password-register" class="form-control" id="password-register">
             </div>
-            <button type="submit" class="login-registrati btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
         <form action="login.php" method="POST">
@@ -39,7 +38,7 @@ get_header("Login");
                 <label for="password-login" class="form-label">Password</label>
                 <input type="password" name="password-login" class="form-control" id="password-login">
             </div>
-            <button type="submit" class="login-registrati btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </section>
 </main>

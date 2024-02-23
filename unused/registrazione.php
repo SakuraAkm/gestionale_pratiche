@@ -21,7 +21,7 @@ if ( $risultato -> num_rows > 0 ) {
     $_SESSION['error'] = "Utente già registrato.";
     $stmt->close();
     $conn->close();
-    header('location: login_registrazione.php');
+    header('location: login_admin.php');
     exit;
 } 
 
@@ -39,7 +39,7 @@ if ( $stmt -> execute() === FALSE ) {
 }
 $stmt->close();
 $conn->close();
-header('location: login_registrazione.php');
+header('location: login_admin.php');
 $_SESSION['mex']='registrazione avvenuta con successo, effettua il login';
 exit;
 ?>

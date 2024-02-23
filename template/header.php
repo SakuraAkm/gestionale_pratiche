@@ -1,7 +1,6 @@
-<?php 
-session_start();
-
+<?php   
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +26,11 @@ session_start();
 
                 <div class="ms-auto">
                     <button type="button" class="btn btn-info text-light fw-semibold rounded-pill px-2 fs-5">
-                        <a href="http://<?php echo APP_URI ?>/login_registrazione.php">Login</a>
+                        <?php if($_SESSION['login'] == false){ ?>
+                            <a href="http://<?php echo APP_URI ?>/login_admin.php">Login</a>
+                        <?php } else { ?>
+                            <a href="http://<?php echo APP_URI ?>/visualizza_admin.php">Gestione Pratiche</a>
+                        <?php } ?>
                     </button>
                 </div>
 
