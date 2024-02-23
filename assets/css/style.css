@@ -68,6 +68,14 @@ button:hover, #logo:hover{
     width: 20vw;
 }
 
+#download-documento{
+    cursor: pointer;
+}
+
+#doc-img{
+    width: 3rem;
+}
+
 footer div{
     height: 5rem;
 }

@@ -3,7 +3,7 @@
     include_once 'inc/functions.php';
     include_once 'inc/db.config.php';
 
-    get_header("Tutti gli articoli - Nome Sito Web"); 
+    get_header("Visualizza Pratiche"); 
 
     $sql = "SELECT * FROM pratiche";
 

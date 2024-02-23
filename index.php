@@ -18,8 +18,8 @@ get_header("Home");
                     <div class="z-n1 mx-auto cover position-absolute h-100 w-100 bg-dark"></div>
 
                     <div class="text-light cover-text position-absolute w-75 mx-auto mt-3">
-                        <h1 class="display-4 fw-semibold">Visualizza</h1>
-                        <p class="fs-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime ad laborum obcaecati eligendi nostrum iure quas quae perspiciatis repudiandae at deleniti nisi facilis illo, praesentium voluptas sit dignissimos? Blanditiis, delectus. Alias quidem ad eum qui totam commodi</p>
+                        <h1 class="display-4 fw-semibold pt-3 text-center">Visualizza</h1>
+                        <p class="fs-4 pt-2 text-center">In questa sezione puoi visualizzare tutte le info riguardo le nostre pratiche:<br>Il corso in questione, il loro stato e il responsabile</p>
                     </div>
 
                     <button type="button" class="btn btn-info position-absolute text-light fw-semibold rounded-pill py-3 fs-5">
@@ -32,8 +32,8 @@ get_header("Home");
                     <div class="z-n1 mx-auto cover position-absolute h-100 w-100 bg-dark"></div>
 
                     <div class="text-light cover-text position-absolute w-75 mx-auto mt-3">
-                        <h1 class="display-4 fw-semibold">Gestisci</h1>
-                        <p class="fs-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime ad laborum obcaecati eligendi nostrum iure quas quae perspiciatis repudiandae at deleniti nisi facilis illo, praesentium voluptas sit dignissimos? Blanditiis, delectus. Alias quidem ad eum qui totam commodi</p>
+                        <h1 class="display-4 fw-semibold pt-3 text-center">Gestisci</h1>
+                        <p class="fs-4 pt-2 text-center">Da questa sezione puoi creare una tua pratica, ci serve solo la tua email e il nome del corso 📑</p>
                     </div>
 
                     <button type="button" class="btn btn-info position-absolute text-light fw-semibold rounded-pill py-3 fs-5 ">
