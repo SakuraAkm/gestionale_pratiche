@@ -21,6 +21,9 @@ get_header("Aggiungi Pratica");
                         <label for="documenti" class="form-label">Documenti</label>
                         <input class="form-control" type="file" id="documenti"  name="documenti" multiple required>
                     </div>
+                    <!--  TO FIX, rende il form troppo grande
+                        <p class=""><strong>Nota: </strong>Sono permessi solo i formati .pdf,  .doc, .jpeg, .jpg con una dimensione massima di 5mb</p> 
+                    -->
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary btn-lg mt-4">Inserisci</button>
                     </div>

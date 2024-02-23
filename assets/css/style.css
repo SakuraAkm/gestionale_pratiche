@@ -4,7 +4,6 @@ body {
 
 button{
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
-    transition: all 0.3s !important;
 }
 
 input,select {
@@ -24,8 +23,12 @@ main button a {
     text-decoration: none;
 }
 
-#logo, footer a {
+#logo, button {
     transition: all 0.3s !important;
+}
+
+footer a, .download-documento {
+    transition: all 0.2s !important;
 }
 
 button:hover, #logo:hover{
@@ -64,12 +67,12 @@ button:hover, #logo:hover{
     width: 40%;
 }
 
-.viewport-20 {
-    width: 20vw;
+.download-documento:hover {
+    color: #0d6efd !important;
 }
 
-#download-documento{
-    cursor: pointer;
+.viewport-20 {
+    width: 20vw;
 }
 
 #doc-img{

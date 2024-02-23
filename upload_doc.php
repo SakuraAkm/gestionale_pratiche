@@ -101,5 +101,4 @@ if(in_array($tipo_file, $estensioni_permesse)){
 
 // }
 
-
-
+$fileDestinazioneDatabase = substr($fileDestinazioneDatabase, 1);

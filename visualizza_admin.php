@@ -46,18 +46,18 @@ if( $risultati -> num_rows > 0 ) { ?>
 
 
     <tr class="text-center">
-      <th scope="row"><?php echo $riga['id_pratica']; ?></th>
-      <td><?php echo $riga['corso']; ?></td>
-      <td><?php echo $riga['nome_utente']; ?></td>
+      <th scope="row" class="pt-3"><?php echo $riga['id_pratica'];?></th>
+      <td class="pt-3"><?php echo $riga['corso']; ?></td>
+      <td class="pt-3"><?php echo $riga['nome_utente']; ?></td>
       
-      <td>
+      <td class="pt-3">
         <?php 
         if($riga['nome_responsabile']){
           echo $riga['nome_responsabile']; }
           else{
-            echo "Responsabile non ancora assegnato";
+            echo "Non assegnato";
           }?></td>
-      <td>
+      <td class="pt-3">
         
         <?php 
         if($riga['stato_pratica'] == 1){
@@ -69,15 +69,17 @@ if( $risultati -> num_rows > 0 ) { ?>
         } else {echo "Error"; }; ?>
 
       </td>
-      <td><?php echo $riga['data_registrazione']; ?></td>
+      <td class="pt-3"><?php echo $riga['data_registrazione']; ?></td>
       <td>
-        <img src="assets/documents.png" id="doc-img" alt="Documento">
-        <p id="download-documento" class="text-decoration-underline">download</p>
+        <a href="admin/download_doc.php?path=<?php echo $riga['documenti']?>&id=0" class="text-dark download-documento">
+          <img src="assets/documents.png" id="doc-img" alt="Documento">
+          Download
+        </a>
       </td>
       <td class="text-center">
         <a href="admin/visualizza.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-success mt-1">VISUALIZZA</a>
         <a href="admin/cancella.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-danger mx-1 mt-1">CANCELLA</a> 
-        <a href="admin/form_aggiorna_pratica.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning mt-1">AGGIORNA</a>
+        <!-- <a href="admin/form_aggiorna_pratica.php?idpratiche=<?php // echo $riga['id_pratica']; ?>" class="btn btn-warning mt-1">AGGIORNA</a> -->
       </td>
     </tr>
 
