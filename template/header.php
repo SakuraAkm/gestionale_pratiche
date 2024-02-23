@@ -1,6 +1,6 @@
 <?php   
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@
                 <div class="ms-auto">
                     <button type="button" class="btn btn-info text-light fw-semibold rounded-pill px-2 fs-5">
                         <?php if($_SESSION['login'] == false){ ?>
-                            <a href="http://<?php echo APP_URI ?>/login_registrazione.php">Login</a>
+                            <a href="http://<?php echo APP_URI ?>/login_admin.php">Login</a>
                         <?php } else { ?>
                             <a href="http://<?php echo APP_URI ?>/visualizza_admin.php">Gestione Pratiche</a>
                         <?php } ?>

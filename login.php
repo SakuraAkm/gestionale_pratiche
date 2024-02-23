@@ -1,7 +1,6 @@
 <?php 
 include_once 'inc/db.config.php';
 include_once 'inc/functions.php';
-
 create_utenti($conn);
 
 $nome_utente = $_POST['username-login'];
@@ -34,7 +33,7 @@ if($results->num_rows > 0){
         $_SESSION['error'] = "Credenziali non valide.";
         $stmt->close();
         $conn->close();
-        header('location: login_registrazione.php');
+        header('location: login_admin.php');
         exit;
     }
 }
@@ -42,6 +41,6 @@ else{
     $_SESSION['error'] = "Credenziali non valide.";
     $stmt->close();
     $conn->close();
-    header('location: login_registrazione.php');
+    header('location: login_admin.php');
     exit;
 }
