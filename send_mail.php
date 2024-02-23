@@ -17,7 +17,7 @@ try {
     $mail->Host = 'smtp.sendgrid.net'; // Host SMTP di SendGrid
     $mail->SMTPAuth = true;
     $mail->Username = 'apikey'; 
-    $mail->Password = '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';
+    $mail->Password = 'pass_key';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     
@@ -27,7 +27,7 @@ try {
 
     // DESTINATARI
 
-    $mail->addAddress('leotne98@gmail.com', 'Leo');
+    $mail->addAddress('esempio@gmail.com', '');
     // $mail->AddCC('utenti-in-copia@esempio.com');
     //$mail->addReplyTo($username);
 
