@@ -7,6 +7,11 @@ button{
     transition: all 0.3s !important;
 }
 
+input,select {
+    border: 1px grey solid !important;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2) !important;
+}
+
 header button a {
     padding: 0.75rem 1.5rem !important;
     color: white;
@@ -58,6 +63,25 @@ button:hover, #logo:hover{
     width: 20vw;
 }
 
+.my-alert{
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 footer{
     height: 5rem;
+}
+
+.opacity {
+    animation: opacity 1 linear 1 1 normal forwards;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
