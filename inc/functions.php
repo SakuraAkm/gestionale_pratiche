@@ -80,3 +80,21 @@ function create_utenti($conn){
         } 
     }
 }
+
+function elimina_file($path)
+{
+    $nomeFile = $path; // Percorso del file
+
+    print_r($nomeFile);
+    // Verifica se il file esiste prima di tentare di cancellarlo
+    if (file_exists($nomeFile)) {
+        // Tentativo di cancellare il file
+        if (unlink($nomeFile)) {
+            echo "Il file è stato cancellato con successo.";
+        } else {
+            echo "Si è verificato un errore durante la cancellazione del file.";
+        }
+    } else {
+        echo "Il file non esiste.";
+}
+}
