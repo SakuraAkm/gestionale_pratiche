@@ -5,11 +5,11 @@ get_header("Aggiorna Pratica");
 
 if($_SESSION['login'] == false)
 {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
 }
 
-$id = $_GET['idpratiche'];
+$id = $_GET['idpratica'];
 
 $sql = "SELECT * FROM pratiche WHERE id_pratica=?";
 
@@ -25,6 +25,9 @@ $row = $results -> fetch_assoc();
 ?>
 
 <main>
+    <?php if(isset($_SESSION['error']) ) :?>
+        <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
+    <?php unset($_SESSION['error']); endif; ?>
     <section class="min-height d-flex justify-content-center align-items-center">
         <form action="aggiorna.php" method="POST" enctype="multipart/form-data">
             <h1 class="fs-1 text-center text-uppercase fw-semibold">Aggiorna Dati Pratica</h1>

@@ -2,11 +2,12 @@
 
 include_once '../inc/db.config.php';
 include_once '../upload_doc.php';
+include_once '../send_mail.php';
 session_start();
 
 if($_SESSION['login'] == false)
 {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
 }
 
@@ -46,6 +47,29 @@ if ( $stmt -> execute() === FALSE ) {
 
 $stmt->close();
 $conn->close();
+
+if($stato_pratica == 1)
+{
+    $pratica = 'Presa in carica';
+}
+else if($stato_pratica == 2)
+{
+    $pratica = 'In corso';
+}
+else if($stato_pratica == 3)
+{
+    $pratica = 'Completata';
+}
+$body = "La pratica n: $id è stata assegnata al responsabile $nome_responsabile, stato pratica: $pratica"; 
+$dati = array (
+    "email_from" => EMAIL_FROM,
+    "email_from_name" => $nome_responsabile,
+    "email_to" => $nome_utente,
+    "subject" => "Gestionale pratiche - Aggiornamento pratica n: $id",
+    "body" => $body
+); 
+
+send_email($dati);
 
 header('Location: ../visualizza_admin.php');
 exit;

@@ -6,41 +6,85 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+function send_email($dati)
+{
+    $mail = new PHPMailer(true);
 
-try {
+    try {
 
-    // IMPOSTAZIONI SERVER SMTP
-    // $mail->SMTPDebug = 2;
-    $mail->isSMTP();
-    $mail->isSMTP();
-    $mail->Host = 'smtp.sendgrid.net'; // Host SMTP di SendGrid
-    $mail->SMTPAuth = true;
-    $mail->Username = 'apikey'; 
-    $mail->Password = 'pass_key';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-    
-    // MITTENTE
+        // IMPOSTAZIONI SERVER SMTP
+        // $mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.sendgrid.net'; // Host SMTP di SendGrid
+        $mail->SMTPAuth = true;
+        $mail->Username = 'apikey'; 
+        $mail->Password = 'key'; 
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        
+        // MITTENTE
 
-    $mail->setFrom( 'gestionale_pratiche@virgilio.it' );
+        $mail->setFrom( EMAIL_FROM );
 
-    // DESTINATARI
+        // DESTINATARI
 
-    $mail->addAddress('esempio@gmail.com', '');
-    // $mail->AddCC('utenti-in-copia@esempio.com');
-    //$mail->addReplyTo($username);
+        $mail->addAddress($dati['email_from'], '');
+        $mail->addAddress($dati['email_to'], '');
+        //$mail->AddCC('utenti-in-copia@esempio.com');
+        //$mail->addReplyTo($username);
 
-    //$mail->isHTML(true);
-    $mail->Subject = "Nuovo utente registrato";
-    $mail->Body = "L'utente con l'username si è appena registrato";
+        //$mail->isHTML(true);
+        $mail->Subject = $dati['subject'];
+        $mail->Body = $dati['body'];
 
-    $mail->send();
+        if($mail->send())
+            $_SESSION['mex'] = "Email inviata con successo";
 
-    echo "Utente Registrato";
+    } catch(Exception $e) {
 
-} catch(Exception $e) {
+        $_SESSION['error'] = "Email non inviata. Errore:" . $mail->ErrorInfo;
 
-    echo "Utente non registrato. Errore:" . $mail->ErrorInfo;
+    }
+}
 
+function send_email_p()
+{
+    $mail = new PHPMailer(true);
+
+    try {
+
+        // IMPOSTAZIONI SERVER SMTP
+        // $mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.sendgrid.net'; // Host SMTP di SendGrid
+        $mail->SMTPAuth = true;
+        $mail->Username = 'apikey'; 
+        $mail->Password = 'key'; 
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        
+        // MITTENTE
+
+        $mail->setFrom( EMAIL_FROM );
+
+        // DESTINATARI
+
+        $mail->addAddress('prova@prova.com', '');//a chi deve arrivare
+        //$mail->AddCC('utenti-in-copia@esempio.com');
+        //$mail->addReplyTo($username);
+
+        //$mail->isHTML(true);
+        $mail->Subject = 'ali di farfalla';
+        $mail->Body = 'Le farfalle sbattono le ali e fanno i tornadi';
+
+        if($mail->send())
+            $_SESSION['mex'] = "Email inviata con successo";
+
+    } catch(Exception $e) {
+
+        $_SESSION['error'] = "Email non inviata. Errore:" . $mail->ErrorInfo;
+
+    }
 }
