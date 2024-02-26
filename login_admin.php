@@ -5,9 +5,9 @@ get_header("Login");
 
 <main id="login" class="text-dark">
 
-    <?php if($_SESSION['error'] != '' ) :?>
+    <?php if(isset($_SESSION['error']) ) :?>
         <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
-    <?php $_SESSION['error'] = ''; endif; ?>
+    <?php unset($_SESSION['error']); endif; ?>
 
     <section class="min-height d-flex justify-content-center align-items-center container w-50">
 

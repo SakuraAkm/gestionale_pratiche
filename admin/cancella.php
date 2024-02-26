@@ -5,11 +5,11 @@ include_once '../inc/db.config.php';
 session_start();
 if($_SESSION['login'] == false)
 {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
 }
 
-$id = $_GET['idpratiche'];
+$id = $_GET['idpratica'];
 
 $sql = "DELETE FROM pratiche WHERE id_pratica=?";
 

@@ -7,12 +7,12 @@ get_header("Pratica");
 
 if($_SESSION['login'] == false)
 {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
 }
 
 
-$id = $_GET['idpratiche'];
+$id = $_GET['idpratica'];
 
 $sql = "SELECT * FROM pratiche WHERE id_pratica=?";
 
@@ -59,7 +59,7 @@ if( $risultati -> num_rows > 0 ) {
 
     </p>
     <p class="fs-5">Creata il giorno:   <?php echo $riga['data_registrazione']; ?></p>
-    <a href="form_aggiorna_pratica.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
+    <a href="form_aggiorna_pratica.php?idpratica=<?php echo $riga['id_pratica']; ?>" class="btn btn-warning">MODIFICA PRATICA</a>
   </div>
 
 <?php } else { ?>

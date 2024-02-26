@@ -8,4 +8,4 @@ define('HOST', 'localhost:8889');
 define('DATABASE_USERNAME', 'root');
 define('DATABASE_PASSWORD', 'root');
 define('DATABASE_NAME', 'gestionale_pratiche');
-
+define('EMAIL_FROM','gestionale_pratiche@virgilio.it');

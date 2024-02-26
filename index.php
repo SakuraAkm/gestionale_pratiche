@@ -2,8 +2,10 @@
 include_once 'inc/functions.php';
 
 $_SESSION['login'] = 0;
-$_SESSION['error'] = '';
-$_SESSION['mex'] = '';
+unset($_SESSION['error']);
+unset($_SESSION['mex']);
+unset($_SESSION['email_utente']);
+unset($_SESSION['corso']);
 get_header("Home");
 
 ?>

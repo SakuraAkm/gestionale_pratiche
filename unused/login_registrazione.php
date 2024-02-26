@@ -9,9 +9,9 @@ get_header("Login");
     <?php if($_SESSION['mex'] != '' ) :?>
         <div class="my-alert opacity alert alert-success mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['mex']; ?></div>
     <?php $_SESSION['mex'] = ''; endif; ?>
-    <?php if($_SESSION['error'] != '' ) :?>
+    <?php if(isset($_SESSION['error']) ) :?>
         <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
-    <?php $_SESSION['error'] = ''; endif; ?>
+    <?php unset($_SESSION['error']); endif; ?>
 
     <section class="min-height d-flex justify-content-between align-items-center container w-50">
         <form action="registrazione.php" method="POST">

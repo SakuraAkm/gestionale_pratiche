@@ -24,7 +24,9 @@ $risultati = $stmt -> get_result();
 if( $risultati -> num_rows > 0 ) { ?>
 
 <main class="site-content min-height container2">
-
+  <?php if(isset($_SESSION['error']) ) :?>
+      <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
+  <?php unset($_SESSION['error']); endif; ?>
   <h1 class="display-4 fw-semibold text-center py-5">Pratiche registrate</h1>
 
   <table class="table table-striped table-hover">
@@ -43,7 +45,6 @@ if( $risultati -> num_rows > 0 ) { ?>
     <tbody>
 
   <?php while ( $riga = $risultati -> fetch_assoc() ) : ?>
-
 
     <tr class="text-center">
       <th scope="row" class="pt-3"><?php echo $riga['id_pratica'];?></th>
@@ -77,9 +78,9 @@ if( $risultati -> num_rows > 0 ) { ?>
         </a>
       </td>
       <td class="text-center">
-        <a href="admin/visualizza.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-success mt-1">VISUALIZZA</a>
-        <a href="admin/cancella.php?idpratiche=<?php echo $riga['id_pratica']; ?>" class="btn btn-danger mx-1 mt-1">CANCELLA</a> 
-        <!-- <a href="admin/form_aggiorna_pratica.php?idpratiche=<?php // echo $riga['id_pratica']; ?>" class="btn btn-warning mt-1">AGGIORNA</a> -->
+        <a href="admin/visualizza.php?idpratica=<?php echo $riga['id_pratica']; ?>" class="btn btn-success mt-1">VISUALIZZA</a>
+        <a href="admin/cancella.php?idpratica=<?php echo $riga['id_pratica']; ?>" class="btn btn-danger mx-1 mt-1">CANCELLA</a> 
+        <!-- <a href="admin/form_aggiorna_pratica.php?idpratica=<?php // echo $riga['id_pratica']; ?>" class="btn btn-warning mt-1">AGGIORNA</a> -->
       </td>
     </tr>
 
