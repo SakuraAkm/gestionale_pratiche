@@ -28,10 +28,11 @@ $row = $results -> fetch_assoc();
     <?php if(isset($_SESSION['error']) ) :?>
         <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
     <?php unset($_SESSION['error']); endif; ?>
+
     <section class="min-height d-flex justify-content-center align-items-center">
         <form action="aggiorna.php" method="POST" enctype="multipart/form-data">
             <h1 class="fs-1 text-center text-uppercase fw-semibold">Aggiorna Dati Pratica</h1>
-            <div class="container position-relative py-5 d-flex justify-content-center align-items-center">
+            <div class="container position-relative py-5 d-flex justify-content-center align-items-center w-50 mx-auto">
                 <div>
                     <div class="mb-3">
                         <label for="aggiorna-corso" class="form-label">Corso</label>
@@ -49,7 +50,7 @@ $row = $results -> fetch_assoc();
                     <label for="aggiorna-stato" class="form-label">Stato</label>
                     <select class="form-select mb-3" id="aggiorna-stato" name="aggiorna-stato" aria-label="Default select example">
                         <option selected>Stato della Pratica</option>
-                        <option value="1" <?php echo $row['stato_pratica'] == 1 ? "selected" : null ?> >
+                        <option value="1" <?php echo $row['stato_pratica'] == 1 ? "selected" : null ?>>
                             Presa in Carica
                         </option>
                         <option value="2" <?php echo $row['stato_pratica'] == 2 ? "selected" : null ?>>
@@ -66,6 +67,8 @@ $row = $results -> fetch_assoc();
                     </div>
 
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                    <p class=""><strong>Nota: </strong>Sono permessi solo i formati .pdf, .doc, .docx, .jpeg, .jpg e .txt con una dimensione massima di 5mb</p> 
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-warning btn-lg mt-2">Aggiorna</button>

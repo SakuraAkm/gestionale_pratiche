@@ -29,7 +29,7 @@
                         <?php if($_SESSION['login'] == false){ ?>
                             <a href="http://<?php echo APP_URI ?>/login_admin.php">Login</a>
                         <?php } else { ?>
-                            <a href="http://<?php echo APP_URI ?>/visualizza_admin.php">Gestione Pratiche</a>
+                            <a href="http://<?php echo APP_URI ?>/visualizza_admin.php">Gestisci Pratiche</a>
                         <?php } ?>
                     </button>
                 </div>

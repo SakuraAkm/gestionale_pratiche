@@ -24,12 +24,18 @@ $risultati = $stmt -> get_result();
 if( $risultati -> num_rows > 0 ) { ?>
 
 <main class="site-content min-height container2">
+
   <?php if(isset($_SESSION['error']) ) :?>
-      <div class="my-alert opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
+      <div class="my-alert text-center opacity alert alert-danger mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['error']; ?></div>
   <?php unset($_SESSION['error']); endif; ?>
+
+  <?php if(isset($_SESSION['mex']) ) :?>
+      <div class="my-alert text-center opacity alert alert-success mx-auto viewport-20 position-fixed" role="alert"><?php echo $_SESSION['mex']; ?></div>
+  <?php unset($_SESSION['mex']); endif; ?>
+
   <h1 class="display-4 fw-semibold text-center py-5">Pratiche registrate</h1>
 
-  <table class="table table-striped table-hover">
+  <table class="table table-striped table-hover mb-5">
     <thead>
       <tr class="fs-5 text-center">
         <th scope="col">ID</th>

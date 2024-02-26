@@ -29,10 +29,9 @@ $riga = $risultati -> fetch_assoc();
 if( $risultati -> num_rows > 0 ) { 
 ?>
     
-<main>
+<main class=>
             
-<section id="copertina" style="background-image: url(../../assets/images/);background-size: cover;background-position: center;height: 90vh;"
-  class="min-height w-100 d-flex justify-content-center align-items-center text-center">
+<section id="copertina" class="min-height w-100 d-flex justify-content-center align-items-center text-center">
 
   <div class="contenuto">
     <h1 class="display-3">Corso di:</h1>

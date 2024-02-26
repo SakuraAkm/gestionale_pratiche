@@ -42,8 +42,8 @@ function send_email($dati)
             $_SESSION['mex'] = "Email inviata con successo";
 
     } catch(Exception $e) {
-
-        $_SESSION['error'] = "Email non inviata. Errore:" . $mail->ErrorInfo;
+        
+        $_SESSION['error'] = "Email non inviata.";
 
     }
 }

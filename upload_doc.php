@@ -75,7 +75,6 @@ if($dimensione_file > $dimensione_massima) {
 
 //controlla se il tipo del file è presente tra i tipi permessi (ex: un txt sarà text/plain)
 if(in_array($tipo_file, $estensioni_permesse)){
-
     move_uploaded_file($_FILES['documenti']['tmp_name'], $fileDestinazione);
     
 } else{

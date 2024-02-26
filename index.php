@@ -35,7 +35,7 @@ get_header("Home");
 
                     <div class="text-light cover-text position-absolute w-75 mx-auto mt-3">
                         <h1 class="display-4 fw-semibold pt-3 text-center">Gestisci</h1>
-                        <p class="fs-4 pt-2 text-center">Da questa sezione puoi creare una tua pratica, ci serve solo la tua email e il nome del corso 📑</p>
+                        <p class="fs-4 pt-2 text-center">Da questa sezione puoi creare una tua pratica, ci serve solo la tua email, il nome del corso e il file della pratica 📑</p>
                     </div>
 
                     <button type="button" class="btn btn-info position-absolute text-light fw-semibold rounded-pill py-3 fs-5 ">
