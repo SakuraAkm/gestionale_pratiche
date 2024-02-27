@@ -32,19 +32,19 @@ $row = $results -> fetch_assoc();
     <section class="min-height d-flex justify-content-center align-items-center">
         <form action="aggiorna.php" method="POST" enctype="multipart/form-data">
             <h1 class="fs-1 text-center text-uppercase fw-semibold">Aggiorna Dati Pratica</h1>
-            <div class="container position-relative py-5 d-flex justify-content-center align-items-center w-50 mx-auto">
+            <div class="responsive-form position-relative py-5 d-flex justify-content-center align-items-center w-50 mx-auto">
                 <div>
                     <div class="mb-3">
                         <label for="aggiorna-corso" class="form-label">Corso</label>
-                        <input type="text" class="form-control" id="aggiorna-corso" name="aggiorna-corso" value="<?php echo $row['corso'] ?>">
+                        <input type="text" class="form-control" id="aggiorna-corso" name="aggiorna-corso" placeholder="Nome del Corso"  value="<?php echo $row['corso'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="aggiorna-nome-utente" class="form-label">Email Utente</label>
-                        <input type="text" class="form-control" id="aggiorna-nome-utente" name="aggiorna-nome-utente" value="<?php echo $row['email_utente'] ?>">
+                        <input type="text" class="form-control" id="aggiorna-nome-utente" name="aggiorna-nome-utente" placeholder="Email@gestionale.it"  value="<?php echo $row['email_utente'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="aggiorna-nome-responsabile" class="form-label">Nome Responsabile</label>
-                        <input type="text" class="form-control" id="aggiorna-nome-responsabile" name="aggiorna-nome-responsabile" value="<?php echo $row['nome_responsabile'] ?>">
+                        <input type="text" class="form-control" id="aggiorna-nome-responsabile" placeholder="Nome del Responsabile"  name="aggiorna-nome-responsabile" value="<?php echo $row['nome_responsabile'] ?>">
                     </div>
 
                     <label for="aggiorna-stato" class="form-label">Stato della Pratica</label>

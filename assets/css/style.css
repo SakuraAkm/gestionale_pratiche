@@ -2,13 +2,29 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+input::placeholder{
+    color: rgba(128, 128, 128, 0.6) !important;
+}
+
 button{
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
 }
 
-input,select {
+input, select  {
     border: 1px grey solid !important;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2) !important;
+}
+
+#logo, button, #profilo {
+    transition: all 0.3s !important;
+}
+
+footer a, .download-documento, #profilo-form {
+    transition: all 0.2s !important;
+}
+
+button:hover, #logo:hover, #profilo:hover{
+    transform: scale(1.05);
 }
 
 header button a {
@@ -18,6 +34,8 @@ header button a {
 }
 
 #profilo{
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
+    border-radius: 100%;
     cursor: pointer !important;
 }
 
@@ -34,30 +52,21 @@ header button a {
     transform: translate(-50%, -50%);
 }
 
+#X {
+    top: -3rem;
+    right: -2.5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
 main button a {
     padding: 1.25rem 2rem !important;
     color: white;
     text-decoration: none;
 }
 
-#logo, button {
-    transition: all 0.3s !important;
-}
-
-footer a, .download-documento, #profilo-form {
-    transition: all 0.2s !important;
-}
-
-button:hover, #logo:hover{
-    transform: scale(1.05);
-}
-
-.min-height{
-    min-height: calc(100vh - 164px);
-}
-
 .container2 {
-    max-width: 75% !important;
+    max-width: 90% !important;
     margin-inline: auto !important;
 }
 
@@ -78,10 +87,6 @@ button:hover, #logo:hover{
     max-width: 95.6%;
     inset: 0;
     opacity: 0.7;
-}
-
-#login form {
-    width: 40%;
 }
 
 .download-documento:hover {
@@ -105,6 +110,7 @@ footer a:hover{
 }
 
 .my-alert{
+    min-width: 15rem !important;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
@@ -120,5 +126,35 @@ footer a:hover{
     }
     to {
         opacity: 0;
+    }
+}
+
+.min-height{
+    min-height: calc(100vh - 164px);
+}
+
+/* small screen */
+@media screen and (max-width: 768px) {
+    .responsive-form {
+        max-width: 90vw !important;
+        min-width: 85vw !important;
+    }
+
+    #login-profile, #logo {
+        margin-inline: auto !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .responsive-form {
+        max-width: 40vw !important;
+        min-width: 35vw !important;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .responsive-form {
+        max-width: 28vw !important;
+        min-width: 20vw !important;
     }
 }

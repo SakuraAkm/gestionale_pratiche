@@ -33,7 +33,7 @@ if( $risultati -> num_rows > 0 ) {
             
 <section id="copertina" class="min-height w-100 d-flex justify-content-center align-items-center text-center">
 
-  <div class="contenuto">
+  <div class="contenuto container2">
     <h1 class="display-3">Corso di:</h1>
     <h1 class="display-3 text-uppercase fw-semibold"><?php echo $riga['corso']; ?></h1>
 
