@@ -39,7 +39,7 @@ $row = $results -> fetch_assoc();
                         <input type="text" class="form-control" id="aggiorna-corso" name="aggiorna-corso" value="<?php echo $row['corso'] ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="aggiorna-nome-utente" class="form-label">Nome Utente</label>
+                        <label for="aggiorna-nome-utente" class="form-label">Email Utente</label>
                         <input type="text" class="form-control" id="aggiorna-nome-utente" name="aggiorna-nome-utente" value="<?php echo $row['nome_utente'] ?>">
                     </div>
                     <div class="mb-3">
@@ -47,9 +47,8 @@ $row = $results -> fetch_assoc();
                         <input type="text" class="form-control" id="aggiorna-nome-responsabile" name="aggiorna-nome-responsabile" value="<?php echo $row['nome_responsabile'] ?>">
                     </div>
 
-                    <label for="aggiorna-stato" class="form-label">Stato</label>
+                    <label for="aggiorna-stato" class="form-label">Stato della Pratica</label>
                     <select class="form-select mb-3" id="aggiorna-stato" name="aggiorna-stato" aria-label="Default select example">
-                        <option selected>Stato della Pratica</option>
                         <option value="1" <?php echo $row['stato_pratica'] == 1 ? "selected" : null ?>>
                             Presa in Carica
                         </option>

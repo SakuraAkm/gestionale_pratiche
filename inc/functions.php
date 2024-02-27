@@ -38,8 +38,7 @@ function create_utenti($array){
 
     $sql = 'CREATE TABLE IF NOT EXISTS utenti (
         id_utente INT(4) AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(255),
-        username VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
         psw TEXT NOT NULL,
         privilegi INT(2) NOT NULL,
         data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -51,17 +50,16 @@ function create_utenti($array){
         die('Non è stato possibile creare la tabella utenti ' . $stmt -> error );
     };
 
-    $nome = $array['nome'];
-    $username = $array["email"];
+    $email = $array["email"];
     $password = $array["password"] . AUTH_SALT;
     $password = password_hash($password, PASSWORD_BCRYPT);
     $privilegi = 1;
 
-    $sql = 'SELECT username FROM utenti WHERE username=?';
+    $sql = 'SELECT email FROM utenti WHERE email=?';
 
     $stmt = $array["conn"] -> prepare($sql);
 
-    $stmt -> bind_param('s', $username);
+    $stmt -> bind_param('s', $email);
 
     if ( $stmt -> execute() === FALSE ) {
         die('non è possibile eseguiere la query');
@@ -71,11 +69,11 @@ function create_utenti($array){
 
     if ( $risultato -> num_rows == 0 ) {
 
-        $sql = "INSERT INTO utenti ( nome, username, psw, privilegi) VALUES ( ?, ?, ?, ?) ";
+        $sql = "INSERT INTO utenti ( email, psw, privilegi) VALUES (?, ?, ?) ";
 
         $stmt = $array["conn"] -> prepare($sql);
 
-        $stmt -> bind_param('sssi', $nome, $username, $password, $privilegi);
+        $stmt -> bind_param('ssi',$email, $password, $privilegi);
 
         if ( $stmt -> execute() === FALSE ) {
             die('non è possibile eseguire la query');

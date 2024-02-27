@@ -17,6 +17,10 @@ header button a {
     text-decoration: none;
 }
 
+#profilo{
+    cursor: pointer !important;
+}
+
 main button a {
     padding: 1.25rem 2rem !important;
     color: white;

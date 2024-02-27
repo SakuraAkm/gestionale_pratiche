@@ -24,7 +24,7 @@
 
                 <a id="logo" class="navbar-brand text-light fs-3 fw-semibold" href="http://<?php echo APP_URI ?>/index.php">Gestionale Pratiche</a>
 
-                <div class="ms-auto">
+                <div class="ms-auto d-flex align-items-center">
                     <button type="button" class="btn btn-info text-light fw-semibold rounded-pill px-2 fs-5">
                         <?php if($_SESSION['login'] == false){ ?>
                             <a href="http://<?php echo APP_URI ?>/login_admin.php">Login</a>
@@ -32,9 +32,21 @@
                             <a href="http://<?php echo APP_URI ?>/visualizza_admin.php">Gestisci Pratiche</a>
                         <?php } ?>
                     </button>
+
+                    <?php if($_SESSION['login']){ ?>
+                        <div class="ms-3" id="profilo">
+                            <img src="http://<?php echo APP_URI ?>/assets/profilo.png" alt="Profilo" class="rounded-pill">
+                        </div>
+                    <?php } ?>
                 </div>
 
             </div>
             
           </nav>
+
+          <div>
+            <form action="">
+                
+            </form>
+          </div>
     </header> 

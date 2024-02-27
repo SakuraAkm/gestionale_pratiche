@@ -2,14 +2,14 @@
 include_once 'inc/db.config.php';
 session_start();
 
-$username = $_POST['email-register'];
+$email = $_POST['email-register'];
 $password = $_POST['password-register'];
 
-$sql = 'SELECT username FROM utenti WHERE username=?';
+$sql = 'SELECT email FROM utenti WHERE email=?';
 
 $stmt = $conn -> prepare($sql);
 
-$stmt -> bind_param('s', $username);
+$stmt -> bind_param('s', $email);
 
 if ( $stmt -> execute() === FALSE ) {
     die('non è possibile eseguiere la query');
@@ -28,11 +28,11 @@ if ( $risultato -> num_rows > 0 ) {
 $password = $password . AUTH_SALT;
 $password = password_hash($password, PASSWORD_BCRYPT);
 
-$sql = "INSERT INTO utenti ( username, psw ) VALUES ( ?, ?) ";
+$sql = "INSERT INTO utenti ( email, psw ) VALUES ( ?, ?) ";
 
 $stmt = $conn -> prepare($sql);
 
-$stmt -> bind_param('ss', $username, $password);
+$stmt -> bind_param('ss', $email, $password);
 
 if ( $stmt -> execute() === FALSE ) {
     die('non è possibile eseguire la query');
