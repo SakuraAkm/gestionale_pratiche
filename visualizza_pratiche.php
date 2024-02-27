@@ -15,6 +15,18 @@
 
     $risultati = $stmt -> get_result();
 
+    $sql_utenti = "SELECT email FROM utenti";
+
+    $stmt2 = $conn -> prepare($sql_utenti);
+
+    if ( $stmt2 -> execute() === FALSE ) {
+        die('NON POSSO LEGGERE LE PRATICHE NEL DATABASE' . $stmt -> error );
+    }
+
+    $risultato = $stmt2 -> get_result();
+    if ( $risultato -> num_rows > 0 ) 
+        $row = $risultato -> fetch_assoc();
+
 ?>
 
     <main class="text-dark">
@@ -30,7 +42,8 @@
                             <th scope="col">Documenti</th>
                             <th scope="col">Utente</th>
                             <th scope="col">Responsabile</th>
-                            <th scope="col">Stato Pratica</th>
+                            <th scope="col">Email responsabile</th>
+                        <th scope="col">Stato Pratica</th>
                             <th scope="col">Data Registrazione</th>
                             </tr>
                         </thead>
@@ -40,10 +53,10 @@
                                     <td> <?php echo $riga['corso']; ?> </td>
                                     <td> <?php 
                                         if(!empty($riga['documenti']))
-                                            echo 'presente'; 
+                                            echo 'Presente'; 
                                         ?>
                                     </td>
-                                    <td> <?php echo $riga['nome_utente']; ?> </td>
+                                    <td> <?php echo $riga['email_utente']; ?> </td>
                                     <td>
                                         <?php 
                                             if(!empty($riga['nome_responsabile']))
@@ -52,14 +65,23 @@
                                                 echo "Responsabile non assegnato";
                                         ?>
                                     </td>
+                                    <?php
+                                    if(!empty($row['email'])) : ?>
                                     <td>
+                                        <?php
+                                            if(!empty($row['email']))
+                                                echo $row['email']; 
+                                        ?>
+                                    </td>
+                                <?php endif; ?>
+                                <td>
                                         <?php 
                                         if($riga['stato_pratica'] == 1)
-                                            echo 'presa in carica'; 
+                                            echo 'Presa in Carica'; 
                                         elseif($riga['stato_pratica'] == 2)
-                                            echo 'in lavorazione';
+                                            echo 'In Lavorazione';
                                         elseif($riga['stato_pratica'] == 3)
-                                            echo 'completata';
+                                            echo 'Completata';
                                         ?>
                                     </td>
                                     <td><?php //echo $riga['data_registrazione']; 
@@ -79,7 +101,7 @@
         <main>
             <section>
                 <h1 class= "fs-3 fw-medium d-flex justify-content-center align-items-center pt-5">
-                    <?php echo "Nessuna Praticha Registrata"; ?> 
+                    <?php echo "Nessuna Pratica Registrata"; ?> 
                 </h1>
             </section>
         </main>

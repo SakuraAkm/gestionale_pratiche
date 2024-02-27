@@ -22,7 +22,7 @@ function crea_pratiche($conn){
         id_pratica INT(4) AUTO_INCREMENT PRIMARY KEY,
         corso VARCHAR(255) NOT NULL,
         documenti TEXT NOT NULL,
-        nome_utente VARCHAR(255) NOT NULL,
+        email_utente VARCHAR(255) NOT NULL,
         nome_responsabile VARCHAR(255),
         stato_pratica INT(4) NOT NULL,
         data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -31,7 +31,24 @@ function crea_pratiche($conn){
         
     if ( $stmt -> execute() === FALSE ) {
         die('Non è stato possibile creare la tabella pratiche ' . $stmt -> error );
-    };
+    }
+}
+
+function crea_utenti($conn)
+{
+    $sql = 'CREATE TABLE IF NOT EXISTS utenti (
+        id_utente INT(4) AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        psw TEXT NOT NULL,
+        privilegi INT(2) NOT NULL,
+        data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )';
+    
+    $stmt = $conn->prepare($sql);
+    
+    if ( $stmt -> execute() === FALSE ) {
+        die('Non è stato possibile creare la tabella utenti ' . $stmt -> error );
+    }
 }
 
 function download_doc($percorso)
@@ -51,22 +68,8 @@ function download_doc($percorso)
     }
 }
 
-function create_utenti($array){
-
-    $sql = 'CREATE TABLE IF NOT EXISTS utenti (
-        id_utente INT(4) AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(255) NOT NULL,
-        psw TEXT NOT NULL,
-        privilegi INT(2) NOT NULL,
-        data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    )';
-    
-    $stmt = $array["conn"]->prepare($sql);
-    
-    if ( $stmt -> execute() === FALSE ) {
-        die('Non è stato possibile creare la tabella utenti ' . $stmt -> error );
-    };
-
+function crea_utente($array)
+{
     $email = $array["email"];
     $password = $array["password"] . AUTH_SALT;
     $password = password_hash($password, PASSWORD_BCRYPT);
@@ -78,7 +81,7 @@ function create_utenti($array){
 
     if ( $stmt -> execute() === FALSE ) {
         die('non è possibile eseguiere la query');
-    };
+    }
 
     $risultato = $stmt -> get_result();
 
@@ -111,5 +114,15 @@ function elimina_file($path)
         }
     } else {
         echo "Il file non esiste.";
+    }
 }
+
+function logout()
+{
+    $_SESSION['login'] = 0;
+    unset($_SESSION['error']);
+    unset($_SESSION['mex']);
+    unset($_SESSION['email_utente']);
+    unset($_SESSION['corso']);
+    unset($_SESSION['email']);
 }

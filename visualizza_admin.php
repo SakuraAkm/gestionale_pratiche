@@ -57,7 +57,7 @@ if( $risultati -> num_rows > 0 ) { ?>
       <tr class="text-center">
         <th scope="row" class="pt-3"><?php echo $riga['id_pratica'];?></th>
         <td class="pt-3"><?php echo $riga['corso']; ?></td>
-        <td class="pt-3"><?php echo $riga['nome_utente']; ?></td>
+        <td class="pt-3"><?php echo $riga['email_utente']; ?></td>
         
         <td class="pt-3">
           <?php 
@@ -72,7 +72,7 @@ if( $risultati -> num_rows > 0 ) { ?>
           if($riga['stato_pratica'] == 1){
             echo 'Presa in Carica';
           } elseif($riga['stato_pratica'] == 2){
-            echo 'In corso';
+            echo 'In Lavorazione';
           } elseif($riga['stato_pratica'] == 3){
             echo 'Completata';
           } else {echo "Error"; }; ?>
@@ -109,7 +109,7 @@ if( $risultati -> num_rows > 0 ) { ?>
     <div>
 
       <h1 class= "fs-3 fw-medium d-flex justify-content-center align-items-center pt-5">
-        <?php echo "Nessuna Praticha Registrata"; ?> 
+        <?php echo "Nessuna Pratica Registrata"; ?> 
       </h1>
 
     </div>

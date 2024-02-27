@@ -11,9 +11,9 @@ $info_utente = array(
     "password"=> $password
 );
 
-create_utenti($info_utente);
+crea_utente($info_utente);
 
-$sql = "SELECT psw, privilegi FROM utenti WHERE email = ? ";
+$sql = "SELECT * FROM utenti WHERE email = ? ";
 
 $stmt = $conn -> prepare($sql);
 $stmt -> bind_param('s', $email_responsabile);
@@ -30,6 +30,7 @@ if($results->num_rows > 0){
 
     if ( password_verify($password, $row['psw']) ) {
         $_SESSION['login'] = $row['privilegi'];
+        $_SESSION['email'] = $row['email'];
         unset($row['psw']);
         unset($password);
         $stmt->close();
