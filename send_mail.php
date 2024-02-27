@@ -13,15 +13,13 @@ function send_email($dati)
     try {
 
         // IMPOSTAZIONI SERVER SMTP
-        // $mail->SMTPDebug = 2;
         $mail->isSMTP();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.sendgrid.net'; // Host SMTP di SendGrid
+        $mail->Host = 'out.virgilio.it'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'apikey'; 
-        $mail->Password = 'key'; 
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = 'gestionale_pratiche@virgilio.it'; 
+        $mail->Password = 'Email.Website2017'; 
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
         
         // MITTENTE
 
@@ -29,12 +27,10 @@ function send_email($dati)
 
         // DESTINATARI
 
-        $mail->addAddress($dati['email_from'], '');
-        $mail->addAddress($dati['email_to'], '');
-        //$mail->AddCC('utenti-in-copia@esempio.com');
-        //$mail->addReplyTo($username);
+        $mail->addAddress($dati['email_responsabile'], $dati['nome_responsabile']);
+        $mail->addAddress($dati['email_utente'], '');
 
-        //$mail->isHTML(true);
+        // Contenuto email
         $mail->Subject = $dati['subject'];
         $mail->Body = $dati['body'];
 
@@ -67,7 +63,7 @@ function send_email_p()
         
         // MITTENTE
 
-        $mail->setFrom( EMAIL_FROM );
+        $mail->setFrom( EMAIL_FROM ); //chi la manda
 
         // DESTINATARI
 

@@ -43,7 +43,7 @@ if( $risultati -> num_rows > 0 ) {
       </a>
     </div>
 
-    <p class="fs-5">Corso di: <?php echo $riga['nome_utente']; ?></p>
+    <p class="fs-5">Corso di: <?php echo $riga['email_utente']; ?></p>
     <p class="fs-5">Supervisionato da: <?php echo $riga['nome_responsabile']; ?></p>
     <p class="fs-5">Stato della pratica:
       <?php 

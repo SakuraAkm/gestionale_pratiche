@@ -40,7 +40,7 @@ $row = $results -> fetch_assoc();
                     </div>
                     <div class="mb-3">
                         <label for="aggiorna-nome-utente" class="form-label">Email Utente</label>
-                        <input type="text" class="form-control" id="aggiorna-nome-utente" name="aggiorna-nome-utente" value="<?php echo $row['nome_utente'] ?>">
+                        <input type="text" class="form-control" id="aggiorna-nome-utente" name="aggiorna-nome-utente" value="<?php echo $row['email_utente'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="aggiorna-nome-responsabile" class="form-label">Nome Responsabile</label>
@@ -53,7 +53,7 @@ $row = $results -> fetch_assoc();
                             Presa in Carica
                         </option>
                         <option value="2" <?php echo $row['stato_pratica'] == 2 ? "selected" : null ?>>
-                            In Corso
+                            In Lavorazione
                         </option>
                         <option value="3" <?php echo $row['stato_pratica'] == 3 ? "selected" : null?>>
                             Completata

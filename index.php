@@ -2,14 +2,11 @@
 include_once 'inc/functions.php';
 include_once 'inc/db.config.php';
 
-$_SESSION['login'] = 0;
-unset($_SESSION['error']);
-unset($_SESSION['mex']);
-unset($_SESSION['email_utente']);
-unset($_SESSION['corso']);
+logout();
 get_header("Home");
 
 crea_pratiche($conn);
+crea_utenti($conn);
 
 ?>
 

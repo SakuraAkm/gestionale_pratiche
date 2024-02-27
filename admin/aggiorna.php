@@ -11,9 +11,9 @@ if($_SESSION['login'] == false)
 }
 
 $id = $_POST['id'];
-$nome_responsabile = $_POST['aggiorna-corso'];
-$email_responsabile = $_POST['aggiorna-nome-utente'];
-$password_responsabile = $_POST['aggiorna-nome-responsabile'];
+$corso = $_POST['aggiorna-corso'];
+$email_utente = $_POST['aggiorna-nome-utente'];
+$nome_responsabile = $_POST['aggiorna-nome-responsabile'];
 $stato_pratica = $_POST['aggiorna-stato'];
 
 if(!empty($_FILES['documenti']['name']))
@@ -33,25 +33,25 @@ if(!empty($_FILES['documenti']['name']))
 
     elimina_file('../' . $riga['documenti']);
     $documenti = $fileDestinazioneDatabase;
-    $sql = "UPDATE pratiche SET corso=?, nome_utente=?, nome_responsabile=?, documenti=?, stato_pratica=?  WHERE id_pratica=?";
+    $sql = "UPDATE pratiche SET corso=?, documenti=?, email_utente=?, nome_responsabile=?, stato_pratica=?  WHERE id_pratica=?";
 
     $stmt = $conn -> prepare( $sql );
     if ($stmt === FALSE) {
         die('Error preparing statement: ' . $conn->error);
     }
 
-    $stmt -> bind_param('ssssii', $nome_responsabile, $email_responsabile, $password_responsabile, $documenti, $stato_pratica, $id);
+    $stmt -> bind_param('ssssii', $corso, $documenti, $email_utente, $nome_responsabile, $stato_pratica, $id);
 }
 else 
 {    
-    $sql = "UPDATE pratiche SET corso=?, nome_utente=?, nome_responsabile=?, stato_pratica=?  WHERE id_pratica=?";
+    $sql = "UPDATE pratiche SET corso=?, email_utente=?, nome_responsabile=?, stato_pratica=?  WHERE id_pratica=?";
 
     $stmt = $conn -> prepare( $sql );
     if ($stmt === FALSE) {
         die('Error preparing statement: ' . $conn->error);
     }
 
-    $stmt -> bind_param('sssii', $nome_responsabile, $email_responsabile, $password_responsabile, $stato_pratica, $id);
+    $stmt -> bind_param('sssii', $corso, $email_utente, $nome_responsabile, $stato_pratica, $id);
 }
 
 if ( $stmt -> execute() === FALSE ) {
@@ -67,17 +67,17 @@ if($stato_pratica == 1)
 }
 else if($stato_pratica == 2)
 {
-    $pratica = 'In corso';
+    $pratica = 'In Lavorazione';
 }
 else if($stato_pratica == 3)
 {
     $pratica = 'Completata';
 }
-$body = "La pratica n: $id è stata assegnata al responsabile $password_responsabile, stato pratica: $pratica"; 
+$body = "La pratica n: $id è stata aggiornata al responsabile $nome_responsabile, stato pratica: $pratica"; 
 $dati = array (
-    "email_from" => EMAIL_FROM,
-    "email_from_name" => $password_responsabile,
-    "email_to" => $email_responsabile,
+    "email_responsabile" => $_SESSION['email'],
+    "nome_responsabile" => $nome_responsabile,
+    "email_utente" => $email_utente,
     "subject" => "Gestionale pratiche - Aggiornamento pratica n: $id",
     "body" => $body
 ); 

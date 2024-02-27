@@ -7,7 +7,7 @@ $corso = $_POST['corso'];
 $documenti = $fileDestinazioneDatabase;
 $stato_pratica = 1;
 
-$sql = "INSERT INTO pratiche ( corso, documenti, nome_utente, stato_pratica ) VALUES ( ?, ?, ?, ?)";
+$sql = "INSERT INTO pratiche ( corso, documenti, email_utente, stato_pratica ) VALUES ( ?, ?, ?, ?)";
 
 $stmt = $conn -> prepare( $sql );
 $stmt -> bind_param('sssi', $corso, $documenti, $email_utente, $stato_pratica);
