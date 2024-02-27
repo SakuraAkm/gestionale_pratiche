@@ -1,5 +1,6 @@
 <?php 
 include_once 'inc/functions.php';
+include_once 'inc/db.config.php';
 
 $_SESSION['login'] = 0;
 unset($_SESSION['error']);
@@ -7,6 +8,8 @@ unset($_SESSION['mex']);
 unset($_SESSION['email_utente']);
 unset($_SESSION['corso']);
 get_header("Home");
+
+crea_pratiche($conn);
 
 ?>
 

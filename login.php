@@ -2,12 +2,12 @@
 include_once 'inc/db.config.php';
 include_once 'inc/functions.php';
 
-$email_utente = $_POST['username-login'];
+$email_responsabile = $_POST['username-login'];
 $password = $_POST['password-login'];
 
 $info_utente = array(
     "conn" => $conn,
-    "email"=> $email_utente,
+    "email"=> $email_responsabile,
     "password"=> $password
 );
 
@@ -16,7 +16,7 @@ create_utenti($info_utente);
 $sql = "SELECT psw, privilegi FROM utenti WHERE email = ? ";
 
 $stmt = $conn -> prepare($sql);
-$stmt -> bind_param('s', $email_utente);
+$stmt -> bind_param('s', $email_responsabile);
 
 if($stmt->execute() === false){
     die("Errore" . $stmt->error);

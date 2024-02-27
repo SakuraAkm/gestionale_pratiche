@@ -17,6 +17,23 @@ function get_footer( $credits = "Crediti Generici" ) {
 
 }
 
+function crea_pratiche($conn){
+    $sql = 'CREATE TABLE IF NOT EXISTS pratiche (
+        id_pratica INT(4) AUTO_INCREMENT PRIMARY KEY,
+        corso VARCHAR(255) NOT NULL,
+        documenti TEXT NOT NULL,
+        nome_utente VARCHAR(255) NOT NULL,
+        nome_responsabile VARCHAR(255),
+        stato_pratica INT(4) NOT NULL,
+        data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )';
+    $stmt = $conn->prepare($sql);
+        
+    if ( $stmt -> execute() === FALSE ) {
+        die('Non è stato possibile creare la tabella pratiche ' . $stmt -> error );
+    };
+}
+
 function download_doc($percorso)
 {
     $file = $percorso;//'assets/images/6.png'
@@ -55,11 +72,9 @@ function create_utenti($array){
     $password = password_hash($password, PASSWORD_BCRYPT);
     $privilegi = 1;
 
-    $sql = 'SELECT email FROM utenti WHERE email=?';
+    $sql = 'SELECT email FROM utenti';
 
     $stmt = $array["conn"] -> prepare($sql);
-
-    $stmt -> bind_param('s', $email);
 
     if ( $stmt -> execute() === FALSE ) {
         die('non è possibile eseguiere la query');

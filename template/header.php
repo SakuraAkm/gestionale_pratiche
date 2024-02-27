@@ -44,9 +44,24 @@
             
           </nav>
 
-          <div>
-            <form action="">
-                
+          <div id="profilo-form" class="visually-hidden opacity-0 rounded position-fixed z-1 mx-auto" enctype="multipart/form-data">
+
+            <form action="http://<?php echo APP_URI ?>/admin/aggiorna_profilo.php" method="POST" class="w-75 mx-auto">
+                <h1 class="fs-2 fw-semibold text-center pb-1">Profilo</h1>
+                <p class="text-center pb-4">Da qui puoi modificare i tuoi dati</p>
+
+                <div class="mb-3">
+                    <label for="email-profilo" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email-profilo" id="email-profilo" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password-profilo" class="form-label">Password</label>
+                    <input type="password" name="password-profilo" class="form-control" id="password-profilo" required>
+                </div>
+                <div class="d-flex justify-content-center mb-4">
+                    <button type="submit" class="btn btn-warning fs-5 mt-3">Aggiorna</button>
+                </div>
+
             </form>
           </div>
     </header> 

@@ -1,5 +1,7 @@
-const profile = document.getElementById("profilo")
+const profileIcon = document.getElementById("profilo")
+const profileForm = document.getElementById("profilo-form")
 
-profile.addEventListener("click", () => {
-    
+profileIcon.addEventListener("click", () => {
+    profileForm.classList.toggle("visually-hidden")
+    profileForm.classList.toggle("opacity-0")
 })

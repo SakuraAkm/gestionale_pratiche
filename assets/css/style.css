@@ -21,6 +21,19 @@ header button a {
     cursor: pointer !important;
 }
 
+#profilo-form {
+    width: clamp(25rem, 30vw, 35rem) !important;
+    background-color: #d0f9ff !important;
+}
+
+#profilo-form{
+    border: 1px solid black;
+    padding-block: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 main button a {
     padding: 1.25rem 2rem !important;
     color: white;
@@ -31,7 +44,7 @@ main button a {
     transition: all 0.3s !important;
 }
 
-footer a, .download-documento {
+footer a, .download-documento, #profilo-form {
     transition: all 0.2s !important;
 }
 
