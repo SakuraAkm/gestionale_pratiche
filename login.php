@@ -1,15 +1,23 @@
 <?php 
 include_once 'inc/db.config.php';
 include_once 'inc/functions.php';
-create_utenti($conn);
 
-$nome_utente = $_POST['username-login'];
+$nome_utente = $_POST['nome-login'];
+$email_utente = $_POST['username-login'];
 $password = $_POST['password-login'];
+
+$info_utente = array(
+    "conn" => $conn,
+    "nome" => $nome_utente,
+    "email"=> $email_utente,
+    "password"=> $password
+);
+create_utenti($info_utente);
 
 $sql = "SELECT psw, privilegi FROM utenti WHERE username = ? ";
 
 $stmt = $conn -> prepare($sql);
-$stmt -> bind_param('s', $nome_utente);
+$stmt -> bind_param('s', $email_utente);
 
 if($stmt->execute() === false){
     die("Errore" . $stmt->error);

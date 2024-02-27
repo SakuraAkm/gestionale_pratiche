@@ -12,7 +12,7 @@ if($_SESSION['login'] == false)
 
 $id = $_POST['id'];
 $corso = $_POST['aggiorna-corso'];
-$nome_utente = $_POST['aggiorna-nome-utente'];
+$email_utente = $_POST['aggiorna-nome-utente'];
 $nome_responsabile = $_POST['aggiorna-nome-responsabile'];
 $stato_pratica = $_POST['aggiorna-stato'];
 
@@ -40,7 +40,7 @@ if(!empty($_FILES['documenti']['name']))
         die('Error preparing statement: ' . $conn->error);
     }
 
-    $stmt -> bind_param('ssssii', $corso, $nome_utente, $nome_responsabile, $documenti, $stato_pratica, $id);
+    $stmt -> bind_param('ssssii', $corso, $email_utente, $nome_responsabile, $documenti, $stato_pratica, $id);
 }
 else 
 {    
@@ -51,7 +51,7 @@ else
         die('Error preparing statement: ' . $conn->error);
     }
 
-    $stmt -> bind_param('sssii', $corso, $nome_utente, $nome_responsabile, $stato_pratica, $id);
+    $stmt -> bind_param('sssii', $corso, $email_utente, $nome_responsabile, $stato_pratica, $id);
 }
 
 if ( $stmt -> execute() === FALSE ) {
@@ -77,7 +77,7 @@ $body = "La pratica n: $id è stata assegnata al responsabile $nome_responsabile
 $dati = array (
     "email_from" => EMAIL_FROM,
     "email_from_name" => $nome_responsabile,
-    "email_to" => $nome_utente,
+    "email_to" => $email_utente,
     "subject" => "Gestionale pratiche - Aggiornamento pratica n: $id",
     "body" => $body
 ); 
