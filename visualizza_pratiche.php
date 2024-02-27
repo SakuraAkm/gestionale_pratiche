@@ -26,7 +26,6 @@
     $risultato = $stmt2 -> get_result();
     if ( $risultato -> num_rows > 0 ) 
         $row = $risultato -> fetch_assoc();
-
 ?>
 
     <main class="text-dark">
@@ -42,8 +41,10 @@
                             <th scope="col">Documenti</th>
                             <th scope="col">Utente</th>
                             <th scope="col">Responsabile</th>
+                            <?php if(!empty($row['email'])) : ?>
                             <th scope="col">Email responsabile</th>
-                        <th scope="col">Stato Pratica</th>
+                            <?php endif; ?>
+                            <th scope="col">Stato Pratica</th>
                             <th scope="col">Data Registrazione</th>
                             </tr>
                         </thead>
