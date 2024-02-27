@@ -41,6 +41,7 @@ if(!empty($_FILES['documenti']['name']))
     }
 
     $stmt -> bind_param('ssssii', $corso, $documenti, $email_utente, $nome_responsabile, $stato_pratica, $id);
+    $doc = true;
 }
 else 
 {    
@@ -52,6 +53,7 @@ else
     }
 
     $stmt -> bind_param('sssii', $corso, $email_utente, $nome_responsabile, $stato_pratica, $id);
+    $doc = false;
 }
 
 if ( $stmt -> execute() === FALSE ) {
@@ -73,7 +75,10 @@ else if($stato_pratica == 3)
 {
     $pratica = 'Completata';
 }
-$body = "La pratica n: $id è stata aggiornata al responsabile $nome_responsabile, stato pratica: $pratica"; 
+if($doc)
+    $body = "La documentazione della pratica n: $id è stata aggiornata.\n Pratica assegnata al responsabile $nome_responsabile.\n Corso: $corso.\n Stato pratica: $pratica."; 
+else
+    $body = "La pratica n: $id è stata aggiornata.\n Pratica assegnata al responsabile: $nome_responsabile.\n Corso: $corso.\n Stato pratica: $pratica."; 
 $dati = array (
     "email_responsabile" => $_SESSION['email'],
     "nome_responsabile" => $nome_responsabile,

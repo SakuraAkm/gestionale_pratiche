@@ -16,8 +16,8 @@ function send_email($dati)
         $mail->isSMTP();
         $mail->Host = 'out.virgilio.it'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'gestionale_pratiche@virgilio.it'; 
-        $mail->Password = 'Email.Website2017'; 
+        $mail->Username = 'email'; //inserire email
+        $mail->Password = 'psw'; // inserire password 
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         
