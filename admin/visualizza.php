@@ -51,7 +51,7 @@ if( $risultati -> num_rows > 0 ) {
       if($riga['stato_pratica'] == 1){
         echo 'Presa in Carica';
       } elseif($riga['stato_pratica'] == 2){
-        echo 'In corso';
+        echo 'In Lavorazione';
       } elseif($riga['stato_pratica'] == 3){
         echo 'Completata';
       } else {echo "Error"; }; ?>
